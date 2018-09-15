@@ -1,0 +1,51 @@
+<!-- Generated template for the AddGroupsComponent component -->
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <img float-left alt="logo" height="30" src="assets/imgs/axar.png"> Add Group
+                    </ion-col>
+                    <ion-col>
+                        <img float-right height="30" src="assets/imgs/home.png" (click)="goBackHome()">
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+
+    <ion-card id="card-background">
+        <ion-card-header id="add-group-header">
+            GROUP NAME<br>
+
+        </ion-card-header>
+
+        <ion-card-content padding id="group-name">
+
+            <ion-input id="input-group-name" placeholder="Name your New Group as..." [(ngModel)]="groupName" type="text" value="">
+            </ion-input>
+
+            <ion-input id="input-fee" placeholder="Enter Fee Amount Value ... " [(ngModel)]="feeAmount" type="text" value="">
+            </ion-input>
+
+            <ion-item id="select-package">
+                <ion-label class="select-label" fixed>Package </ion-label>
+                <ion-select [(ngModel)]="selectedPackage" (ionChange)=onItemSelection(selectedGroup)>
+                    <ion-option [value]="item" *ngFor="let item of packageList">{{item.packageName}}
+                    </ion-option>
+                </ion-select>
+            </ion-item>
+
+            <div padding></div>
+            <button ion-button block (click)="addGroup()">Save
+
+      </button>
+        </ion-card-content>
+
+
+    </ion-card>
+
+</ion-content>

@@ -1,0 +1,44 @@
+<!-- Generated template for the EditKidComponent component -->
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <img float-left alt="logo" height="30" src="assets/imgs/axar.png"> Edit Kids
+                    </ion-col>
+                    <ion-col>
+                        <img float-right height="30" src="assets/imgs/home.png" (click)="goBackHome()">
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-card id="card-background">
+
+        <ion-item id="kid-name">
+            <ion-label fixed>Name </ion-label>
+            <ion-input [(ngModel)]="kid.kidName" type="text" value="{{kid.kidName}}"></ion-input>
+        </ion-item>
+
+        <ion-item id="select-group">
+            <ion-label class="select-label" fixed>Group </ion-label>
+            <ion-select [(ngModel)]="selectedGroup" (ionChange)=onItemSelection(selectedGroup)>
+                <ion-option [value]="item" *ngFor="let item of groupList">{{item.groupName}} ({{item.groupID}})
+                </ion-option>
+            </ion-select>
+        </ion-item>
+
+
+        <div padding>
+            <button ion-button block (click)="saveKidInfo()">Save
+
+      </button>
+        </div>
+
+    </ion-card>
+</ion-content>

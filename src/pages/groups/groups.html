@@ -1,0 +1,72 @@
+<!-- Generated template for the GroupsComponent component -->
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <img float-left alt="logo" height="30" src="assets/imgs/axar.png"> Groups
+                    </ion-col>
+                    <ion-col>
+                        <img float-right height="30" src="assets/imgs/home.png" (click)="goBackHome()">
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <div padding>
+        <div>
+            <div padding>
+                Click Group to see Calendar
+            </div>
+            <ion-row *ngIf="groupList; else loading">
+                <button ion-button block id="list-row" *ngFor="let item of groupList let odd=odd; let even=even" [ngClass]="{ odd: odd, even:even}" (click)="goToShowClassInfo(item)">
+                <div >{{ item.groupName }} </div>
+
+              </button>
+
+
+            </ion-row>
+        </div>
+
+        <div>
+            <ng-template #loading>
+                <ion-spinner name="bubbles">Loading Groups...</ion-spinner>
+            </ng-template>
+        </div>
+
+
+    </div>
+
+
+
+    <div>
+        <ion-row>
+            <ion-col>
+                <div padding>
+
+                    <button ion-button (click)="addGroup()">Add Group
+
+              </button>
+
+                </div>
+            </ion-col>
+            <ion-col>
+                <div padding float-right>
+
+                    <button ion-button (click)="goToEditGroupDetails()">Edit Group
+
+              </button>
+
+                </div>
+            </ion-col>
+        </ion-row>
+    </div>
+
+
+
+</ion-content>

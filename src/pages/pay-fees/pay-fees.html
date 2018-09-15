@@ -1,0 +1,77 @@
+<!-- Generated template for the PayFeesComponent component -->
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <img float-left alt="logo" height="30" src="assets/imgs/axar.png"> PAY FEES
+                    </ion-col>
+                    <ion-col>
+                        <img float-right height="30" src="assets/imgs/home.png" (click)="goBackHome()">
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+{{kidsList}}
+
+
+<ion-content padding>
+
+    <div padding>
+        <div>
+
+            <ion-row *ngIf="feeList; else loading">
+
+                <ion-grid>
+                    <ion-row>
+                        <ion-col col-5>
+                            Date
+                        </ion-col>
+                        <ion-col>
+                            Present
+                        </ion-col>
+                        <ion-col>
+                            Fee Paid
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+
+                <button id="button-text" ion-button block id="list-row" *ngFor="let item of feeList; let i=index let odd=odd; let even=even" [ngClass]="{ odd: odd, even:even}">
+
+                  <ion-grid>
+                  <ion-row no-padding>
+                    <ion-col  col-5 id="name-col">
+                      {{item.dateOfAttendance | date}}
+                    </ion-col>
+                    <ion-col id="cb-col">
+                      {{item.present}}
+                    </ion-col>
+                    <ion-col id="cb-fee">
+                      {{item.feePaid}}
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+
+
+              </button>
+
+
+            </ion-row>
+        </div>
+
+        <div>
+            <ng-template #loading>
+                <ion-spinner name="bubbles">Loading Groups...</ion-spinner>
+            </ng-template>
+        </div>
+
+
+    </div>
+
+
+
+
+</ion-content>

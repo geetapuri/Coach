@@ -1,0 +1,22 @@
+page-save-payment {
+    .even {
+        background-color: rgb(40, 179, 214);
+    }
+    .odd {
+        background-color: rgb(121, 241, 245);
+    }
+    #button-text {
+        text-align: left;
+    }
+    .button-inner {
+        justify-items: left;
+    }
+    #name-col,
+    #cb-col,
+    #cb-fee {
+        text-align: left;
+    }
+    img {
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,55 @@
+<!-- Generated template for the KidsComponent component -->
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <img float-left alt="logo" height="30" src="assets/imgs/axar.png"> Kids
+                    </ion-col>
+                    <ion-col>
+                        <img float-right height="30" src="assets/imgs/home.png" (click)="goBackHome()">
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <div padding>
+
+        <button ion-button block (click)="addKids()">Add Kid
+
+      </button>
+    </div>
+
+
+    <div padding>
+        <ion-row *ngIf="kidList; else loading">
+            <button ion-button block id="list-row" *ngFor="let item of kidList let odd=odd; let even=even" [ngClass]="{ odd: odd, even:even}" (click)="goToEditKidDetails(item)">
+                  <ion-col col-2 ion-item  no-lines id="col-avatar">
+                      <ion-avatar item-left>
+                          <!--<img src="{{item.avatarSrc}}" alt="pic">-->
+                      </ion-avatar>
+                  </ion-col>
+                  <ion-col id ="list-col">
+                      {{ item.kidName }}<br>
+                      {{ item.groupName }} {{item.groupID}}
+                  </ion-col>
+          </button>
+        </ion-row>
+        <div>
+            <ng-template #loading>
+                <ion-spinner name="bubbles">Loading Kids...</ion-spinner>
+            </ng-template>
+        </div>
+    </div>
+
+
+
+
+
+
+</ion-content>

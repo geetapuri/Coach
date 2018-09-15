@@ -1,0 +1,26 @@
+<!-- Generated template for the EditScheduleDetailsComponent component -->
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <img alt="logo" height="40" src="assets/imgs/coach.png"> EDIT SCHEDULE
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-card-header>
+            {{ groupName }}
+        </ion-card-header>
+        <ion-card-content>
+            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+        </ion-card-content>
+        <ion-card-content>
+            {{ myTime }}
+        </ion-card-content>
+
+    </ion-card>
+    <div padding>
+        <button ion-button block (click)="saveSchedule()">Save Schedule</button>
+    </div>
+</ion-content>

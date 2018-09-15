@@ -1,0 +1,32 @@
+page-attendance {
+    .even {
+        background-color: rgb(40, 179, 214);
+        color: white;
+    }
+    .odd {
+        background-color: rgb(121, 241, 245);
+        color: rgb(40, 179, 214);
+    }
+    img {
+        cursor: pointer;
+    }
+    .group-name {
+        font-size: normal;
+    }
+    .scroll-list {
+        background-color: #333;
+        overflow: auto;
+        white-space: nowrap;
+    }
+    .scroll-list button {
+        display: inline-block;
+        text-align: center;
+        padding: 14px;
+        text-decoration: none;
+        font-weight: bold;
+        height: 80px;
+    }
+    .scroll-list button:hover {
+        background-color: #777;
+    }
+}

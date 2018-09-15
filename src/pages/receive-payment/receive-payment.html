@@ -1,0 +1,43 @@
+<!-- Generated template for the ReceivePaymentComponent component -->
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <img float-left alt="logo" height="30" src="assets/imgs/axar.png"> PAYMENT
+                    </ion-col>
+                    <ion-col>
+                        <img float-right height="30" src="assets/imgs/home.png" (click)="goBackHome()">
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <div padding>
+        <ion-row *ngIf="scheduleList; else loading">
+            <div padding>
+                Showing Class dates for {{groupName}}
+            </div>
+            <button ion-button block id="list-row" *ngFor="let item of scheduleList let odd=odd; let even=even" [ngClass]="{ odd: odd, even:even}" (click)="getFeeForGroupDate(item.date)">
+            <div >{{ item.date | date }}</div>
+
+          </button>
+        </ion-row>
+    </div>
+
+
+
+    <div>
+        <ng-template #loading>
+            <ion-spinner name="bubbles">Loading Groups...</ion-spinner>
+        </ng-template>
+    </div>
+
+
+
+</ion-content>

@@ -1,0 +1,170 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <img alt="logo" height="40" src="assets/imgs/axar.png"> Coach App
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <div padding id="top-row">
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+
+                    <div padding>
+                        <ion-img src="{{coachAvatar}}">
+                        </ion-img>
+                    </div>
+                    <br>
+                    <div>
+                        Welcome {{coachName | uppercase}}
+                    </div>
+
+                </ion-col>
+                <ion-col>
+                    <div padding>
+                        <div>
+                            <ion-img src="assets/imgs/groups.png" (click)="goToGroups()">
+                            </ion-img>
+                        </div>
+                        <br>
+                        <div>
+                            All Groups
+                        </div>
+                    </div>
+
+
+                </ion-col>
+
+            </ion-row>
+        </ion-grid>
+    </div>
+
+    <ion-content>
+        <ion-card id="card-background">
+
+            <div padding id="class-for-today">
+                Classes for Today
+            </div>
+
+            <div padding>
+                <ion-row *ngIf="groupList; else loading">
+                    <button ion-button block id="list-row" *ngFor="let item of groupList let odd=odd; let even=even" [ngClass]="{ odd: odd, even:even}" (click)="viewAttendanceForToday(item)">
+                    <div *ngIf="groupReceived; else noResult">
+                        {{ item.groupName }} AT {{item.time}}
+                    </div>
+                  </button> {{groupList.length}} groups(s) has/have classes today
+
+                </ion-row>
+            </div>
+
+
+
+            <div>
+                <ng-template #noResult>
+                    No Result {{groupList.length}}
+                </ng-template>
+                <ng-template #loading>
+                    <ion-spinner name="bubbles">Loading Groups...</ion-spinner>
+                </ng-template>
+            </div>
+
+        </ion-card>
+
+        <ion-card id="card-background">
+
+            <div padding id="menu">
+                Menu
+            </div>
+            <div>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col>
+                            <div padding>
+                                <div>
+                                    <ion-img src="assets/imgs/add-schedule.png" (click)="goToSchedule()">
+                                    </ion-img>
+                                </div>
+                                <br>
+                                <div>
+                                    Add Class Date/Time
+                                </div>
+                            </div>
+                        </ion-col>
+                        <ion-col>
+                            <div padding>
+                                <div>
+                                    <ion-img src="assets/imgs/attendance.png" (click)="goToAttendance()">
+                                    </ion-img>
+                                </div>
+                                <br>
+                                <div>
+                                    Attendance
+                                </div>
+                            </div>
+
+                        </ion-col>
+                        <ion-col>
+                            <div padding>
+                                <div>
+                                    <ion-img src="assets/imgs/fee.png" (click)="goToFees()">
+                                    </ion-img>
+                                </div>
+                                <br>
+                                <div>
+                                    Fees
+                                </div>
+                            </div>
+
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+
+                        <ion-col>
+                            <div padding>
+                                <div>
+                                    <ion-img src="assets/imgs/kids.png" (click)="getKids()">
+                                    </ion-img>
+                                </div>
+                                <br>
+                                <div>
+                                    Kids
+                                </div>
+                            </div>
+
+                        </ion-col>
+                        <ion-col>
+                            <div padding>
+                                <div>
+                                    <ion-img src="assets/imgs/events.png" (click)="goToEvents()">
+                                    </ion-img>
+                                </div>
+                                <br>
+                                <div>
+                                    Events
+                                </div>
+                            </div>
+                        </ion-col>
+                        <ion-col>
+                            <div padding>
+                                <div>
+                                    <ion-img src="assets/imgs/performance.png" (click)="goToPerformance()">
+                                    </ion-img>
+                                </div>
+                                <br>
+                                <div>
+                                    Performance
+                                </div>
+                            </div>
+
+                        </ion-col>
+                    </ion-row>
+
+                </ion-grid>
+            </div>
+
+        </ion-card>
+
+    </ion-content>

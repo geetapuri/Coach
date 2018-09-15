@@ -1,0 +1,86 @@
+<!-- Generated template for the GroupsComponent component -->
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <img float-left alt="logo" height="30" src="assets/imgs/axar.png"> Groups
+                    </ion-col>
+                    <ion-col>
+                        <img float-right height="30" src="assets/imgs/home.png" (click)="goBackHome()">
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <div padding>
+        <div>
+            <div padding>
+                Click Group to Edit
+            </div>
+            <ion-row *ngIf="groupList; else loading">
+                <button ion-button block id="list-row" *ngFor="let item of groupList let odd=odd; let even=even" [ngClass]="{ odd: odd, even:even}" (click)="goToEditGroup(item)">
+                <div >{{ item.groupName }} {{item.feeAmount}} </div>
+
+              </button>
+
+
+            </ion-row>
+        </div>
+
+        <div>
+            <ng-template #loading>
+                <ion-spinner name="bubbles">Loading Groups...</ion-spinner>
+            </ng-template>
+        </div>
+
+
+    </div>
+
+
+
+
+    <ion-card id="card-background" *ngIf="selected">
+        <ion-card-header id="edit-group-header">
+            GROUP INFO FOR {{selectedGroup.groupName}} <br>
+
+        </ion-card-header>
+
+        <ion-card-content padding id="group-name">
+
+            <ion-label fixed>Group Name </ion-label>
+
+            <ion-input id="input-group-name" [(ngModel)]="selectedGroup.groupName" type="text" value="">
+            </ion-input>
+
+            <ion-label fixed>Fee Amount </ion-label>
+            <ion-input id="input-fee" [(ngModel)]="selectedGroup.feeAmount" type="text" value="">
+            </ion-input>
+
+            <ion-item id="select-package">
+                <ion-label class="select-label" fixed>Package </ion-label>
+                <ion-select [(ngModel)]="selectedPackage" (ionChange)=onItemSelection(selectedPackage)>
+                    <ion-option [value]="item" *ngFor="let item of packageList">{{item.packageName}}
+                    </ion-option>
+                </ion-select>
+            </ion-item>
+
+            <div padding></div>
+            <button ion-button (click)="updateGroup()">Update Group
+
+      </button>
+        </ion-card-content>
+
+
+    </ion-card>
+
+
+
+
+
+</ion-content>

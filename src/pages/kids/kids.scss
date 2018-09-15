@@ -1,0 +1,22 @@
+page-kids {
+    #list-row {
+        height: 60px;
+    }
+    #list-col {
+        background-color: transparent;
+    }
+    .even {
+        background-color: rgb(40, 179, 214);
+    }
+    .odd {
+        background-color: rgb(121, 241, 245);
+    }
+    #col-avatar {
+        width: 30px;
+        height: 30px;
+        background-color: transparent;
+    }
+    img {
+        cursor: pointer;
+    }
+}

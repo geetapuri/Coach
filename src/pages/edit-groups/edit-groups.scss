@@ -1,0 +1,32 @@
+page-edit-groups {
+    .even {
+        background-color: rgb(40, 179, 214);
+    }
+    .odd {
+        background-color: rgb(121, 241, 245);
+    }
+    img {
+        cursor: pointer;
+    }
+    #card-background {
+        background-color: rgb(171, 247, 250);
+        color: darkmagenta;
+    }
+    #edit-group-header {
+        background-color: rgb(79, 156, 243);
+        color: white;
+    }
+    #group-name {
+        background-color: rgb(97, 206, 240);
+    }
+    #input-group-name,
+    #input-fee {
+        border-bottom: 1px solid darkmagenta;
+    }
+    #select-package {
+        background-color: rgb(97, 206, 240);
+    }
+    .select-label {
+        color: darkmagenta !important;
+    }
+}

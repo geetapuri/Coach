@@ -1,0 +1,30 @@
+page-edit-kid {
+    #card-background {
+        background-color: rgb(171, 247, 250);
+        color: darkmagenta;
+    }
+    #kid-name {
+        background-color: transparent;
+    }
+    #edit-kid-header {
+        background-color: rgb(79, 156, 243);
+        color: white;
+    }
+    #input-group-name {
+        border-bottom: 1px solid darkmagenta;
+    }
+    #select-group {
+        background-color: rgb(50, 152, 170);
+        color: white;
+    }
+    #select-package {
+        background-color: rgb(169, 205, 211);
+        color: white;
+    }
+    .select-label {
+        color: darkmagenta !important;
+    }
+    img {
+        cursor: pointer;
+    }
+}

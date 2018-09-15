@@ -1,0 +1,71 @@
+<!-- Generated template for the SavePaymentComponent component -->
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <img float-left alt="logo" height="30" src="assets/imgs/axar.png"> PAYMENT
+                    </ion-col>
+                    <ion-col>
+                        <img float-right height="30" src="assets/imgs/home.png" (click)="goBackHome()">
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <div padding>
+        <ion-row *ngIf="kidsFeeList; else loading">
+
+            <ion-grid>
+                <ion-row>
+                    <ion-col col-5>
+                        {{date | date }}
+                    </ion-col>
+                    <ion-col>
+                        Paid Today?
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+
+            <button id="button-text" ion-button block id="list-row" *ngFor="let item of kidsFeeList; let i=index let odd=odd; let even=even" [ngClass]="{ odd: odd, even:even}">
+
+          <ion-grid>
+          <ion-row no-padding>
+            <ion-col  col-5 id="name-col">
+              {{item.kidName}}
+            </ion-col>
+            <ion-col id="cb-col">
+              <ion-checkbox [(ngModel)]="checkedItems[i]"></ion-checkbox>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+
+      </button>
+
+
+        </ion-row>
+
+
+
+        <div>
+            <button padding ion-button (click)="savePayment()">Save
+
+  </button>
+        </div>
+
+        <div>
+            <ng-template #loading>
+                <ion-spinner name="bubbles">Loading Groups...</ion-spinner>
+            </ng-template>
+        </div>
+
+    </div>
+
+
+</ion-content>

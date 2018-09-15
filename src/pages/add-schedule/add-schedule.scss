@@ -1,0 +1,25 @@
+page-add-schedule {
+    #card-background {
+        background-color: rgb(171, 247, 250);
+        color: darkmagenta;
+    }
+    #select-group,
+    #repeat {
+        background-color: rgb(79, 156, 243);
+        color: white;
+    }
+    .repeat-label {
+        color: darkmagenta !important;
+    }
+    #select-time,
+    #select-date {
+        background-color: rgb(204, 250, 248);
+        border-bottom: 1px solid darkmagenta;
+    }
+    .select-label {
+        color: darkmagenta !important;
+    }
+    img {
+        cursor: pointer;
+    }
+}

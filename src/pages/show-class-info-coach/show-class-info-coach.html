@@ -1,0 +1,90 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <img float-left alt="logo" height="30" src="assets/imgs/axar.png"> DETAILS
+                    </ion-col>
+                    <ion-col>
+                        <img float-right height="30" src="assets/imgs/home.png" (click)="goBackHome()">
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+
+    <ion-card>
+        <div class="calendar-header">
+            <ion-row class="calendar-month">
+                <ion-col col-2 (click)="goToLastMonth()">
+                    <ion-icon name="arrow-back"></ion-icon>
+                </ion-col>
+                <ion-col col-8>{{currentMonth}} {{currentYear}}</ion-col>
+                <ion-col col-2 (click)="goToNextMonth()">
+                    <ion-icon name="arrow-forward"></ion-icon>
+                </ion-col>
+            </ion-row>
+        </div>
+        <div class="calendar-body">
+            <ion-grid>
+                <ion-row class="calendar-weekday">
+                    <ion-col>Su</ion-col>
+                    <ion-col>Mo</ion-col>
+                    <ion-col>Tu</ion-col>
+                    <ion-col>We</ion-col>
+                    <ion-col>Th</ion-col>
+                    <ion-col>Fr</ion-col>
+                    <ion-col>Sa</ion-col>
+                </ion-row>
+                <ion-row class="calendar-date">
+                    <ion-col col-1 *ngFor="let lastDay of daysInLastMonth" class="last-month">{{lastDay}}</ion-col>
+                    <ion-col col-1 id="col-{{day}}" *ngFor="let day of daysInThisMonth" (click)="clickedDate(day)">
+                        <span class="currentDate" *ngIf="currentDate === day; else otherDate">{{day}}</span>
+                        <ng-template #otherDate class="otherDate">{{day}}</ng-template>
+                    </ion-col>
+                    <ion-col col-1 *ngFor="let nextDay of daysInNextMonth" class="next-month">{{nextDay}}</ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+
+    </ion-card>
+
+
+    <ion-card id="card-background">
+        <ion-card-header id="schedule-header">
+            Schedule for <br>
+            <div *ngIf="selectedDate; else originalDate ">{{selectedDate | date}}, </div>
+            <ng-template #originalDate>{{myDate | date}}, </ng-template>
+            {{coach[0].coachName | uppercase}}
+        </ion-card-header>
+
+        <ion-card-content padding id="group-name">
+
+            GROUP <br>{{selectedGroup.groupName}} ({{selectedGroup.groupID}})
+        </ion-card-content>
+
+        <ion-card-content no-padding id="schedule-details">
+            <div *ngIf="scheduleForDate?.length>0 ; else noClassToday">
+                <div padding *ngFor="let item of scheduleForDate let odd=odd; let even=even " [ngClass]="{ odd: odd, even:even}">
+
+                    At : {{item.time}} <br> GROUP: {{item.groupName}}<br> DATE: {{item.date | date}}
+
+                </div>
+            </div>
+            <ng-template #noClassToday>
+                <div padding>No Class Today
+                </div>
+            </ng-template>
+        </ion-card-content>
+
+
+
+
+    </ion-card>
+</ion-content>

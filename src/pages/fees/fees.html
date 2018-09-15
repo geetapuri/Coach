@@ -1,0 +1,98 @@
+<!-- Generated template for the FeesComponent component -->
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <img float-left alt="logo" height="30" src="assets/imgs/axar.png"> Fees
+                    </ion-col>
+                    <ion-col>
+                        <img float-right height="30" src="assets/imgs/home.png" (click)="goBackHome()">
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+
+
+    <div padding>
+        <div>
+            <div>
+                <div padding id="group-name">
+                    Click Group to see Fees
+                </div>
+
+            </div>
+            <ion-row *ngIf="groupList; else loading">
+                <button ion-button block id="list-row" *ngFor="let item of groupList let odd=odd; let even=even" [ngClass]="{ odd: odd, even:even}" (click)="getKidsInGroup(item)">
+                <div >{{ item.groupName }}</div>
+
+              </button>
+
+            </ion-row>
+        </div>
+
+        <div>
+            <ng-template #loading>
+                <ion-spinner name="bubbles">Loading Groups...</ion-spinner>
+            </ng-template>
+        </div>
+
+
+    </div>
+
+    <div padding>
+        <div *ngIf="kidsList">
+
+            <div>
+                <ion-row>
+                    <ion-col no-padding>
+                        <div padding id="group-name">
+                            Kids in {{groupName}}
+                        </div>
+                    </ion-col>
+
+
+                    <ion-col no-padding>
+                        <ion-row float-right>
+
+                            <div>
+
+                                <button ion-button no-padding id="payment-button" icon-only (click)="paymentReceived()">
+                                <ion-icon name="logo-usd"></ion-icon>
+                              </button>
+                            </div>
+                        </ion-row><br>
+                        <ion-row float-right>
+                            <div>
+                                Payment <br> Due
+                            </div>
+                        </ion-row>
+
+                    </ion-col>
+                </ion-row>
+
+
+            </div>
+
+
+            <button ion-button block id="list-row" *ngFor="let item of kidsList let odd=odd; let even=even" [ngClass]="{ odd: odd, even:even}" (click)="getFeesForKid(item)">
+            <ion-col><div >{{ item.kidName }}</div></ion-col>
+            <ion-col><div  id="fee-amount">{{ item.invoiceAmount}}</div></ion-col>
+            <ion-col><div id ="invoice-due">{{ item.invoiceDue}}</div></ion-col>
+
+          </button>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+</ion-content>
